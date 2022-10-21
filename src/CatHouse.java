@@ -15,32 +15,37 @@ public class CatHouse
     // themselves first!  If they have the same age, have them
     // introduce themselves alphabetically; if they have the same name AND
     // same age, then have cat1 go first
-    int cat1Age = cat1.getAge();
-    int cat2Age = cat2.getAge();
-    int nameOrder = cat1.getName().compareTo(cat2.getName());
     public void rollCall()
     {
+        int cat1Age = cat1.getAge();
+        int cat2Age = cat2.getAge();
+        int nameOrder = cat1.getName().compareTo(cat2.getName());
         if (cat1Age > cat2Age)
         {
             cat1.introduce();
+            cat2.introduce();
         }
         else if (cat2Age > cat1Age)
         {
             cat2.introduce();
+            cat1.introduce();
         }
         else if (cat1Age == cat2Age)
         {
             if (nameOrder < 0)
             {
                 cat1.introduce();
+                cat2.introduce();
             }
             else if (nameOrder > 0)
             {
                 cat2.introduce();
+                cat1.introduce();
             }
             else
             {
                 cat1.introduce();
+                cat2.introduce();
             }
         }
     }
@@ -60,7 +65,7 @@ public class CatHouse
     {
         String str = "Welcome to " + owner + "'s Cat House!\n";
         str += "Cat 1's Name: " + cat1.getName() + ", Age: " + cat1.getAge();
-        str += "Cat 2's Name: " + cat2.getName() + ", Age: " + cat2.getAge();
+        str += "\nCat 2's Name: " + cat2.getName() + ", Age: " + cat2.getAge();
 
         return str;
     }
